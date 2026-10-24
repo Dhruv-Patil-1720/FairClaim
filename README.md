@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FairClaim
 
-## Getting Started
+Upload the insurer's settlement and one page of your policy, and see which cuts are unfair.
 
-First, run the development server:
+![FairClaim on the demo bill, with the unfair total on screen](docs/screenshot.png)
+
+## How it works
+
+1. You give two pictures: the insurer's settlement table, and a page of your policy.
+2. Gemma 4 reads both and marks each cut fair, unfair, or unclear.
+3. One click drafts a complaint email in English, plus Hindi or Marathi.
+
+Gemma reads, code adds up.
+
+## Why Gemma 4
+
+Gemma 4 has open weights, so a hospital desk or an NGO can run it on a laptop with Ollama `gemma4:e4b`. The bills never leave the building.
+
+## Demo
+
+Load the demo case. The insurer cut ₹87,000, of which ₹45,000 is unfair. The same bill with the stricter policy comes to ₹20,000.
+
+## Run locally
+
+```bash
+npm install
+```
+
+Create `.env.local` in the project folder:
+
+```
+GEMINI_API_KEY=your_key_here
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The key stays in `.env.local` on the machine that runs the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<!-- Replace the link below with the DigitalOcean deploy button URL. -->
 
-## Learn More
+[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](REPLACE_ME)
 
-To learn more about Next.js, take a look at the following resources:
+## Honesty note
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The idea, prompt drafts, JSON schema and synthetic demo papers were prepared the day before the event. All application code was written during MLH Hacktoberfest Hack Day Mumbai on 24 Oct 2026.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Not legal advice
 
-## Deploy on Vercel
+FairClaim is not legal advice. It does not replace your policy, a lawyer, or the insurer's own process. You decide what to send.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Apache License 2.0](LICENSE). Copyright 2026 Dhruv Unmesh Patil.
