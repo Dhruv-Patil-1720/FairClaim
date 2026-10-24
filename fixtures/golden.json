@@ -1,0 +1,22 @@
+{
+  "about": "Answer key for demo/settlement*.png + demo/policy.png. The probe scores Gemma against it; tomorrow it is the test case for the totals code.",
+  "patient_name": "Ramesh Patil",
+  "claim_number": "CL-2610-55821",
+  "policy": {
+    "room_limit_per_day": 5000,
+    "full": ["medicine|pharmacy|drug", "test|scan|mri|diagnos", "implant|stent"],
+    "not_full": [],
+    "example_paid_in_full": ["medicines", "diagnostic tests (blood tests, scans, MRI)", "implants"],
+    "quote": "This proportionate reduction shall not apply to the cost of medicines, diagnostic tests (including blood tests, scans and MRI) and implants, which shall be paid in full."
+  },
+  "room": { "rent_per_day": 10000, "days": 3 },
+  "rows": [
+    { "item": "Room rent (3 days)", "billed": 30000, "cut": 15000, "verdict": "fair" },
+    { "item": "Doctor & surgery fees", "billed": 50000, "cut": 25000, "verdict": "fair" },
+    { "item": "Medicines", "billed": 40000, "cut": 20000, "verdict": "unfair" },
+    { "item": "Blood tests & MRI", "billed": 16000, "cut": 8000, "verdict": "unfair" },
+    { "item": "Heart stent (implant)", "billed": 34000, "cut": 17000, "verdict": "unfair" },
+    { "item": "Gloves & registration pass", "billed": 2000, "cut": 2000, "verdict": "fair" }
+  ],
+  "totals": { "billed": 172000, "cut": 87000, "paid": 85000, "fair": 42000, "unfair": 45000 }
+}

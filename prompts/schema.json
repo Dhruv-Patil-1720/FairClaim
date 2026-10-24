@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "patient_name": { "type": ["string", "null"] },
+    "claim_number": { "type": ["string", "null"] },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "room_limit_per_day": { "type": ["number", "null"] },
+        "paid_in_full_items": { "type": "array", "items": { "type": "string" } },
+        "never_paid_items": { "type": "array", "items": { "type": "string" } },
+        "plain_summary": { "type": "string" },
+        "quote": { "type": "string" }
+      },
+      "required": ["room_limit_per_day", "paid_in_full_items", "never_paid_items", "plain_summary", "quote"]
+    },
+    "room": {
+      "type": "object",
+      "properties": {
+        "rent_per_day": { "type": ["number", "null"] },
+        "days": { "type": ["number", "null"] }
+      },
+      "required": ["rent_per_day", "days"]
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item": { "type": "string" },
+          "billed": { "type": ["number", "null"] },
+          "cut": { "type": ["number", "null"] },
+          "insurer_reason": { "type": "string" },
+          "verdict": { "type": "string", "enum": ["fair", "unfair", "unclear"] },
+          "why": { "type": "string" },
+          "box": { "type": "array", "items": { "type": "integer" }, "minItems": 4, "maxItems": 4 }
+        },
+        "required": ["item", "billed", "cut", "insurer_reason", "verdict", "why", "box"]
+      }
+    },
+    "steps": { "type": "array", "items": { "type": "string" }, "maxItems": 6 },
+    "notes": { "type": "array", "items": { "type": "string" }, "maxItems": 3 }
+  },
+  "required": ["patient_name", "claim_number", "policy", "room", "rows", "steps", "notes"]
+}

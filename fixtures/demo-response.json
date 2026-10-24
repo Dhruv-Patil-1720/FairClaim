@@ -1,0 +1,149 @@
+{
+  "model": "gemma-4-26b-a4b-it",
+  "mode": "deep",
+  "ms": 28277,
+  "usage": {
+    "promptTokenCount": 944,
+    "candidatesTokenCount": 978,
+    "totalTokenCount": 1922,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 428
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 516
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "thinking": "",
+  "audit": {
+    "patient_name": "Ramesh Patil",
+    "claim_number": "CL-2610-55821",
+    "policy": {
+      "room_limit_per_day": 5000,
+      "paid_in_full_items": [
+        "medicines",
+        "diagnostic tests (including blood tests, scans and MRI)",
+        "implants"
+      ],
+      "never_paid_items": [
+        "Gloves",
+        "masks",
+        "registration and admission charges",
+        "attendant food",
+        "visitor passes"
+      ],
+      "plain_summary": "If your room costs more than the limit, other hospital charges will be reduced by the same percentage. However, medicines, tests, and implants will still be paid in full.",
+      "quote": "If the Insured Person occupies a room whose rent per day is higher than the limit above, all other expenses incurred at the Hospital shall be paid in the same proportion as the limit bears to the actual room rent per day. This proportionate reduction shall not apply to the cost of medicines, diagnostic tests (including blood tests, scans and MRI) and implants, which shall be paid in full."
+    },
+    "room": {
+      "rent_per_day": 10000,
+      "days": 3
+    },
+    "rows": [
+      {
+        "item": "Room rent (3 days)",
+        "billed": 30000,
+        "cut": 15000,
+        "insurer_reason": "Above room limit",
+        "verdict": "fair",
+        "why": "The room rent is 10,000 per day, which is double the 5,000 limit, so the insurer is only paying 50%.",
+        "box": [
+          311,
+          129,
+          357,
+          366
+        ]
+      },
+      {
+        "item": "Doctor & surgery fees",
+        "billed": 50000,
+        "cut": 25000,
+        "insurer_reason": "Proportionate deduction 50%",
+        "verdict": "fair",
+        "why": "Since the room rent was double the limit, other charges like doctor fees are reduced by 50%.",
+        "box": [
+          357,
+          131,
+          401,
+          366
+        ]
+      },
+      {
+        "item": "Medicines",
+        "billed": 40000,
+        "cut": 20000,
+        "insurer_reason": "Proportionate deduction 50%",
+        "verdict": "unfair",
+        "why": "The policy says medicines must be paid in full even if the room rent is higher than the limit.",
+        "box": [
+          401,
+          131,
+          444,
+          366
+        ]
+      },
+      {
+        "item": "Blood tests & MRI",
+        "billed": 16000,
+        "cut": 8000,
+        "insurer_reason": "Proportionate deduction 50%",
+        "verdict": "unfair",
+        "why": "The policy says diagnostic tests like blood tests and MRI must be paid in full.",
+        "box": [
+          444,
+          131,
+          486,
+          366
+        ]
+      },
+      {
+        "item": "Heart stent (implant)",
+        "billed": 34000,
+        "cut": 17000,
+        "insurer_reason": "Proportionate deduction 50%",
+        "verdict": "unfair",
+        "why": "The policy says implants must be paid in full.",
+        "box": [
+          486,
+          131,
+          529,
+          366
+        ]
+      },
+      {
+        "item": "Gloves & registration pass",
+        "billed": 2000,
+        "cut": 2000,
+        "insurer_reason": "Not payable",
+        "verdict": "fair",
+        "why": "The policy says gloves and registration charges are not covered.",
+        "box": [
+          529,
+          131,
+          569,
+          366
+        ]
+      }
+    ],
+    "steps": [
+      "Read the policy to find the room rent limit and rules for over-limit room costs.",
+      "Identify the patient and claim details from the settlement table.",
+      "Compare each item in the settlement table with the policy rules.",
+      "Check if the room rent cut is correct based on the limit.",
+      "Verify if the proportionate reduction was applied to items that should be paid in full.",
+      "Determine if the cuts to medicines, tests, and implants were fair or unfair based on the policy."
+    ],
+    "notes": [
+      "The insurer cut 20,000 from medicines, 8,000 from blood tests & MRI, and 17,000 from heart stent (implant) which should have been paid in full according to the policy."
+    ]
+  },
+  "totals": {
+    "unfair": 45000,
+    "fair": 42000,
+    "unclear": 0
+  }
+}
