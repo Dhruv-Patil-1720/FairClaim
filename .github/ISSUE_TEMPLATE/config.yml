@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/Dhruv-Patil-1720/FairClaim/security/advisories/new
+    about: Report a vulnerability in private. Do not attach a real hospital bill or an API key. You can also email the address in SECURITY.md.
