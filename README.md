@@ -28,7 +28,7 @@ There is no logo file in this repo. The screen title is the words above: **FairC
 
 Gemma reads the two photos. Code adds up the rupees (`lib/totals.ts`). The model never supplies the total on screen.
 
-## <a id="the-problem"></a>🚨 The real-world Indian problem
+## <a id="the-problem"></a>🚨 The Problem
 
 A cashless bill is often settled while the patient is still in the hospital. The demo papers in this repo are **synthetic**. The footer on each image says so. Names, the hospital, and the claim number are made up. The pattern on the bill is the one the app is built to show.
 
